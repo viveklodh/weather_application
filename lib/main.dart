@@ -32,14 +32,13 @@ class _MyAppState extends State<MyApp> {
                 ElevatedButton(
                     onPressed: () async {
                       weatherModel = await Repo().getWeather(controller.text);
-
-                      print(weatherModel?.main?.temp);
-
+                      print(weatherModel?.main?.temp ?? "error");
                       setState(() {});
                     },
                     child: Text("search")),
-                Text("temp ${weatherModel?.main?.temp ?? "error"}"),
-                Text("max temp ${weatherModel?.main?.tempMax ?? "error"}")
+                Text("temp ${weatherModel?.main?.temp}"),
+                Text("min temp${weatherModel?.main?.tempMin}"),
+                Text("max temp${weatherModel?.main?.tempMax}"),
               ],
             )));
   }
